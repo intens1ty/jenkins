@@ -2,7 +2,10 @@ pipeline {
     agent any
     stages {
       stage ('Hello') {
-        steps {
+        when {
+            expression { $JOB_NAME == 'test1' }
+        }
+          steps {
           echo "test"
       }   
     }
