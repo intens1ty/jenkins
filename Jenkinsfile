@@ -1,9 +1,12 @@
 pipeline {
     agent any
+    environment {
+        BUILD="$JOB_NAME"
+    }
     stages {
       stage ('Hello') {
         when {
-            expression { $JOB_NAME == 'test1' }
+            expression { $BUILD == 'test1' }
         }
           steps {
           echo "test"
