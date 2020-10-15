@@ -29,6 +29,7 @@ pipeline {
       stage ('Deploy') {
         when {
             expression { "$BUILD" == "Stage" }
+            expression { ROLLBACK == 'false' }
         }
           steps {
           sh """
