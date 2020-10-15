@@ -5,7 +5,7 @@ pipeline {
     }
     stages {
 
-        stage('Get code ansible') {
+      stage('Get code ansible') {
             steps {
                 checkout([
                     $class: 'GitSCM',
@@ -24,16 +24,16 @@ pipeline {
         }
           steps {
           echo "test" 
+          }
       }
-
+         
       stage ('Rollback') {
         when {
             expression { "$BUILD" == "Stage" }
         }
           steps {
           echo "test"
+          }
       }
-          
     }
-  }
 }
