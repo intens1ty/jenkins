@@ -7,6 +7,6 @@
   file:
     state: directory
     recurse: yes
-    path: {{ playbook_dir }}/../../project
+    path: "{{ playbook_dir }}/../../project"
     owner: test1
     group: test1
