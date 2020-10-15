@@ -8,9 +8,9 @@ pipeline {
       stage('Get code ansible') {
             steps {
               sh '''
-                mkdir -p ansible 
+                mkdir -p ansistrano 
               '''
-              dir('ansible') {
+              dir('ansistrano') {
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/intens1ty/jenkins.git']]])
               }
             }
@@ -32,7 +32,7 @@ pipeline {
         }
           steps {
           sh """
-            cd ansible
+            cd ansistrano/ansible
             ansible-galaxy install -p roles ansistrano.deploy ansistrano.rollback
             ansible-playbook -i inventory/hosts.ini \
               -e "ansistrano_deploy_from={{ playbook_dir }}/../project/" \
