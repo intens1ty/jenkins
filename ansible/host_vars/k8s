@@ -1,3 +1,6 @@
 ansistrano_before_symlink_shared_tasks_file: "{{ playbook_dir }}/ansistrano-deploy-config/before-symlink-shared-tasks.yml"
 ansistrano_before_update_code_tasks_file: "{{ playbook_dir }}/ansistrano-deploy-config/before_update_code_tasks_file.yml"
 ansistrano_after_update_code_tasks_file: "{{ playbook_dir }}/ansistrano-deploy-config/after_update_code_tasks_file.yml"
+
+ansistrano_shared_paths: ["files", "files2"]
+ansistrano_shared_files: ["1", "2"]
