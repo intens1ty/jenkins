@@ -2,6 +2,6 @@
   file:
     state: directory
     recurse: yes
-    path: "{{ playbook_dir }}/../../project"
+    path: "{{ ansistrano_releases_path }}/{{ ansistrano_release_version }}"
     owner: test1
     group: test1
