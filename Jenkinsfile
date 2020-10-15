@@ -36,6 +36,7 @@ pipeline {
             ansible-galaxy install -p roles ansistrano.deploy ansistrano.rollback
             ansible-playbook -i inventory/hosts.ini \
               -e "ansistrano_deploy_from={{ playbook_dir }}/../../project/" \
+              -e "ansistrano_keep_releases=5" \
               deploy.yml
           """
           }
@@ -44,9 +45,15 @@ pipeline {
       stage ('Rollback') {
         when {
             expression { "$BUILD" == "Stage" }
+            expression { ROLLBACK == 'true' }
         }
           steps {
-          echo "test"
+          sh """
+            cd ansistrano/ansible
+            ansible-galaxy install -p roles ansistrano.deploy ansistrano.rollback
+            ansible-playbook -i inventory/hosts.ini \
+              rollback.yml
+          """
           }
       }
     }
