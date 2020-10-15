@@ -4,3 +4,6 @@ ansistrano_after_update_code_tasks_file: "{{ playbook_dir }}/ansistrano-deploy-c
 
 ansistrano_shared_paths: ["files", "files2"]
 ansistrano_shared_files: ["1", "2"]
+
+ansistrano_ensure_shared_paths_exist: no
+ansistrano_ensure_basedirs_shared_files_exist: no
