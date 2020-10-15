@@ -20,9 +20,9 @@ pipeline {
             cd ansible
             ansible-galaxy install -p roles ansistrano.deploy ansistrano.rollback
             ansible-playbook -i inventory/hosts.ini \
-                        -e "ansistrano_deploy_via=git" \
-                        -e "ansistrano_git_repo=https://github.com/intens1ty/3proxy.sh" \
-                        deploy.yml
+              -e "ansistrano_deploy_via=git" \
+              -e "ansistrano_git_repo=https://github.com/intens1ty/3proxy.sh" \
+              deploy.yml
           """
           }
       }
