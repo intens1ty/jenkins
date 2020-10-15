@@ -18,8 +18,8 @@ pipeline {
           steps {
           sh """
             cd ansible
-            sudo -E ansible-galaxy install -p roles ansistrano.deploy ansistrano.rollback
-            sudo -E ansible-playbook -i inventory/hosts.ini \
+            ansible-galaxy install -p roles ansistrano.deploy ansistrano.rollback
+            ansible-playbook -i inventory/hosts.ini \
                         -e "ansistrano_deploy_via=git" \
                         -e "ansistrano_git_repo=https://github.com/intens1ty/3proxy.sh" \
                         deploy_app.yml
