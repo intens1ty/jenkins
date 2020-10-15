@@ -7,7 +7,12 @@ pipeline {
 
       stage('Get code ansible') {
             steps {
+              sh '''
+              mkdir -p ansible
+              '''
+              dir('ansible') {
                 checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/intens1ty/jenkins.git']]])
+              }
             }
         }
 
