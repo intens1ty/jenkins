@@ -1,0 +1,2 @@
+- name: Test
+  shell: "echo test1 > {{ ansistrano_releases_path }}/{{ ansistrano_release_version }}/build.file"
