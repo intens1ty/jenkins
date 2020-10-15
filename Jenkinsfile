@@ -6,7 +6,7 @@ pipeline {
     stages {
       stage ('Hello') {
         when {
-            expression { "$BUILD" == "test2" }
+            expression { "$BUILD" == "Stage" }
         }
           steps {
           echo "test"
