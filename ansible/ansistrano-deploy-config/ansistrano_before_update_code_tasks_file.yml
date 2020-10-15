@@ -1,0 +1,4 @@
+- name: Test
+  delegate_to: 127.0.0.1
+  shell: "echo local_build > {{ playbook_dir }}/../../project/local_build.file"
+  
